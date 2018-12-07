@@ -1,0 +1,2 @@
+D:\devCodeCamp\C#\CustomList\CustomListTest\obj\Debug\CustomListTest.csprojAssemblyReference.cache
+D:\devCodeCamp\C#\CustomList\CustomListTest\obj\Debug\CustomListTest.csproj.CoreCompileInputs.cache

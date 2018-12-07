@@ -19,7 +19,7 @@ namespace CustomListTest
         private static void AddMethod_FirstIndexCheckAfterFirstPush_isTrue()
         {
             // Arrange
-            CustomList newList = new CustomList();
+            CustomList<int> newList = new CustomList<int>();
             int expectedResult = 4;
 
             // Act
@@ -117,7 +117,7 @@ namespace CustomListTest
 
             // Act
             newList.Add(1);
-            newList.Remove(0);
+            newList.Remove(1);
 
             // Assert
             Assert.AreEqual(expectedResult, newList.Count());
@@ -135,7 +135,7 @@ namespace CustomListTest
             newList.Add(1);
             newList.Add(2);
             newList.Add(3);
-            newList.Remove(0);
+            newList.Remove(2);
 
             // Assert
             Assert.AreEqual(expectedResult, newList[1]);
@@ -152,7 +152,7 @@ namespace CustomListTest
             newList.Add(1);
             newList.Add(2);
             newList.Add(3);
-            newList.Remove(1);
+            newList.Remove(2);
 
             // Assert
             Assert.AreEqual(expectedResult, newList[0]);
@@ -168,7 +168,7 @@ namespace CustomListTest
             // Act
             newList.Add(1);
             newList.Add(2);
-            newList.Remove(0);
+            newList.Remove(2);
 
             // Assert
             Assert.AreEqual(expectedResult, newList.Count);
@@ -187,7 +187,7 @@ namespace CustomListTest
             newList.Add(3);
             newList.Add(4);
             newList.Add(5);
-            newList.Remove(0);
+            newList.Remove(3);
             newList.Remove(1);
             newList.Remove(2);
 
@@ -210,7 +210,7 @@ namespace CustomListTest
             string expectedResult = "1";
 
             // Act
-            string actualResult = newList.ToString(0);
+            string actualResult = newList.ToString();
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
@@ -224,7 +224,7 @@ namespace CustomListTest
             string expectedResult = "123";
 
             // Act
-            string actualResult = (newList.ToString(0) + newList.ToString(1) + newList.ToString(2));
+            string actualResult = newList.ToString();
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
@@ -282,7 +282,7 @@ namespace CustomListTest
         //   - Check to make sure zip returns the appropiate length  (count should be equal to both counts combined)
 
         [TestMethod]
-        private static void ZipMethod_CheckNewListForSuccessfulZip_isTrue()
+        private static void ZipMethod_CheckNewListForSuccessfulZipIndex0_isTrue()
         {
             // Arrange
             CustomList list1 = new CustomList() { 1, 3, 5 };
@@ -292,10 +292,41 @@ namespace CustomListTest
             // Act
             var beforezipList = list1;
             list1.Zip(list2);
-            var expectedResult = expectedList;
+            var expectedResult = expectedList[0];
             // Assert
-            Assert.AreNotEqual(beforezipList, expectedResult);
-            Assert.AreEqual(expectedResult, list1);
+            Assert.AreEqual(expectedResult, list1[0]);
+        }
+
+        [TestMethod]
+        private static void ZipMethod_CheckNewListForSuccessfulZipIndex1_isTrue()
+        {
+            // Arrange
+            CustomList list1 = new CustomList() { 1, 3, 5 };
+            CustomList list2 = new CustomList() { 2, 4, 6 };
+            CustomList expectedList = new CustomList<int> { 1, 2, 3, 4, 5, 6 };
+
+            // Act
+            var beforezipList = list1;
+            list1.Zip(list2);
+            var expectedResult = expectedList[1];
+            // Assert
+            Assert.AreEqual(expectedResult, list1[1]);
+        }
+
+        [TestMethod]
+        private static void ZipMethod_CheckNewListForSuccessfulZipIndex2_isTrue()
+        {
+            // Arrange
+            CustomList list1 = new CustomList() { 1, 3, 5 };
+            CustomList list2 = new CustomList() { 2, 4, 6 };
+            CustomList expectedList = new CustomList<int> { 1, 2, 3, 4, 5, 6 };
+
+            // Act
+            var beforezipList = list1;
+            list1.Zip(list2);
+            var expectedResult = expectedList[2];
+            // Assert
+            Assert.AreEqual(expectedResult, list1[2]);
         }
 
         [TestMethod]
