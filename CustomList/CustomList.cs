@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList <T>
+    public class CustomList <T> : IEnumerable
     {
         T[] hiddenArray = new T[4];
         private int count;
@@ -151,26 +152,25 @@ namespace CustomList
         }
         public override string ToString()
         {
-            int i = 0;
+            int i = 1;
+            string valuesCombined;
             if (typeof(T) == typeof(int))
             {
-                string[] tempArray = new string[hiddenArray.Length];
-                while ((i + 1) > hiddenArray.Length)
+                string x = hiddenArray[0].ToString();
+                while (i < count)
                 {
-                    tempArray[i] = hiddenArray[i].ToString();
+                    x += hiddenArray[i].ToString();
                     i++;
                 }
-                i = 0;
-                hiddenArray = Convert.ChangeType(hiddenArray, typeof(string));
-                while ((i + 1) > hiddenArray.Length)
-                {
-                    hiddenArray[i] = tempArray[i];
-                    i++;
-                }
-                return hiddenArray;
+                return valuesCombined = x;
+            }
+            else
+            {
+                Console.WriteLine("ToString Override Error: could not successfully convert to string.");
+                return "Error";
             }
         }
-        //public void Zip()
+        //public override Zip()
         //{
 
         //}
@@ -183,5 +183,13 @@ namespace CustomList
         //{
 
         //}
+
+        public IEnumerator GetEnumerator()
+        {
+            for (var i = 0; i < hiddenArray.Length; i++)
+            {
+                yield return hiddenArray[i];
+            }
+        }
     }
 }

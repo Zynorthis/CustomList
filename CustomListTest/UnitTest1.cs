@@ -276,8 +276,8 @@ namespace CustomListTest
 
             // Act
             newList.Add(1);
-            newList[0].ToString();
-            var actualResult = newList[0];
+            var actualResult = newList[0].ToString();
+            // var actualResult = newList[0];
 
             // Assert
             Assert.IsInstanceOfType(actualResult, typeof(string));
