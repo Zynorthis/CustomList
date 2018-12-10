@@ -1,2 +1,17 @@
 D:\devCodeCamp\C#\CustomList\CustomListTest\obj\Debug\CustomListTest.csprojAssemblyReference.cache
 D:\devCodeCamp\C#\CustomList\CustomListTest\obj\Debug\CustomListTest.csproj.CoreCompileInputs.cache
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\CustomListTest.dll
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\CustomListTest.pdb
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\CustomList.exe
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\CustomList.pdb
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\CustomList.exe.config
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\devCodeCamp\C#\CustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\devCodeCamp\C#\CustomList\CustomListTest\obj\Debug\CustomListTest.csproj.CopyComplete
+D:\devCodeCamp\C#\CustomList\CustomListTest\obj\Debug\CustomListTest.dll
+D:\devCodeCamp\C#\CustomList\CustomListTest\obj\Debug\CustomListTest.pdb
