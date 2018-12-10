@@ -149,10 +149,27 @@ namespace CustomList
                 i++;
             }
         }
-        //public string ToString()
-        //{
-        //    return "string";
-        //}
+        public override string ToString()
+        {
+            int i = 0;
+            if (typeof(T) == typeof(int))
+            {
+                string[] tempArray = new string[hiddenArray.Length];
+                while ((i + 1) > hiddenArray.Length)
+                {
+                    tempArray[i] = hiddenArray[i].ToString();
+                    i++;
+                }
+                i = 0;
+                hiddenArray = Convert.ChangeType(hiddenArray, typeof(string));
+                while ((i + 1) > hiddenArray.Length)
+                {
+                    hiddenArray[i] = tempArray[i];
+                    i++;
+                }
+                return hiddenArray;
+            }
+        }
         //public void Zip()
         //{
 

@@ -202,77 +202,86 @@ namespace CustomListTest
         //   - Check to make sure the count is equal to the beginning count after converting
         //   - Check if an int is converted to type string successfully
 
-        //[TestMethod]
-        //private static void ToStringMethod_CheckIndexForStringConvertion_isTrue()
-        //{
-        //    // Arrange
-        //    CustomList<int> newList = new CustomList<int>() { 1 };
-        //    string expectedResult = "1";
+        [TestMethod]
+        public void ToStringMethod_CheckIndexForStringConvertion_isTrue()
+        {
+            // Arrange
+            CustomList<int> newList = new CustomList<int>();
+            string expectedResult = "1";
 
-        //    // Act
-        //    string actualResult = newList.ToString();
+            // Act
+            newList.Add(1);
+            string actualResult = newList.ToString();
 
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
 
-        //[TestMethod]
-        //private static void ToStringMethod_CheckMultiplyIndexValuesForStringConvertion_isTrue()
-        //{
-        //    // Arrange
-        //    CustomList<int> newList = new CustomList<int>() { 1, 2, 3 };
-        //    string expectedResult = "123";
+        [TestMethod]
+        public void ToStringMethod_CheckMultiplyIndexValuesForStringConvertion_isTrue()
+        {
+            // Arrange
+            CustomList<int> newList = new CustomList<int>();
+            string expectedResult = "123";
 
-        //    // Act
-        //    string actualResult = newList.ToString();
+            // Act
+            newList.Add(1);
+            newList.Add(2);
+            newList.Add(3);
+            string actualResult = newList.ToString();
 
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
 
-        //[TestMethod]
-        //private static void ToStringMethod_CheckFirstIndexAfterRemovingSecondIndexForStringConvertion_isTrue()
-        //{
-        //    // Arrange
-        //    CustomList<string> newList = new CustomList<string>() { "1", "2", "3" };
-        //    string expectedResult = "1";
+        [TestMethod]
+        public void ToStringMethod_CheckFirstIndexAfterRemovingSecondIndexForStringConvertion_isTrue()
+        {
+            // Arrange
+            CustomList<int> newList = new CustomList<int>();
+            string expectedResult = "13";
 
-        //    // Act
-        //    newList[1].Remove();
-        //    string actualResult = newList.ToString();
+            // Act
+            newList.Add(1);
+            newList.Add(2);
+            newList.Add(3);
+            newList.Remove(2);
+            string actualResult = newList.ToString();
 
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
 
-        //[TestMethod]
-        //private static void ToStringMethod_CheckListCountAfterConvertion_isEqual()
-        //{
-        //    // Arrange
-        //    CustomList<int> newList = new CustomList<int>() { 1 };
-        //    int expectedResult = 1;
+        [TestMethod]
+        public void ToStringMethod_CheckListCountAfterConvertion_isEqual()
+        {
+            // Arrange
+            CustomList<int> newList = new CustomList<int>();
+            int expectedResult = 1;
 
-        //    // Act
-        //    newList[0].ToString();
-        //    int actualResult = newList.Count;
+            // Act
+            newList.Add(1);
+            newList[0].ToString();
+            int actualResult = newList.Count;
 
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
 
-        //[TestMethod]
-        //private static void ToStringMethod_CheckIndexTypeAfterConvertion_isEqual()
-        //{
-        //    // Arrange
-        //    CustomList<int> newList = new CustomList<int>() { 1 };
+        [TestMethod]
+        public void ToStringMethod_CheckIndexTypeAfterConvertion_isEqual()
+        {
+            // Arrange
+            CustomList<int> newList = new CustomList<int>();
 
-        //    // Act
-        //    newList[0].ToString();
-        //    string actualResult = newList[0];
+            // Act
+            newList.Add(1);
+            newList[0].ToString();
+            var actualResult = newList[0];
 
-        //    // Assert
-        //    Assert.IsInstanceOfType(actualResult, typeof(string));
-        //}
+            // Assert
+            Assert.IsInstanceOfType(actualResult, typeof(string));
+        }
 
         //// Zip
         ////   - Check to make sure two list are successfully zipped
