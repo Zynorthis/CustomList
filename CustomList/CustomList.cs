@@ -185,23 +185,48 @@ namespace CustomList
                 throw new Exception("Parameter Type Error: The parameters that were passed in do not have equal types.");
             }
 
-            T[] resultArray = new T[count + secondList.count];
+            int a = 4;
+            while (a < (count + secondList.count))
+            {
+                a = a * 2;
+            }
+            CustomList<T> resultList = new CustomList<T>();
+            resultList.hiddenArray = new T[a];
             if (count > secondList.count)
             {
                 int i = 0;
+                int x = 0;
                 while (i <= secondList.count)
                 {
-
+                    resultList.hiddenArray[x] = hiddenArray[i];
+                    resultList.hiddenArray[x + 1] = secondList.hiddenArray[i];
+                    x = x + 2;
+                    i++;
+                }
+                while (i <= count)
+                {
+                    resultList.hiddenArray[i] = hiddenArray[i];
+                    i++;
                 }
             }
             else if (secondList.count > count)
             {
                 int i = 0;
+                int x = 0;
                 while (i <= count)
                 {
-
+                    resultList.hiddenArray[x] = secondList.hiddenArray[i];
+                    resultList.hiddenArray[x + 1] = hiddenArray[i];
+                    x = x + 2;
+                    i++;
+                }
+                while (i <= secondList.count)
+                {
+                    resultList.hiddenArray[i] = secondList.hiddenArray[i];
+                    i++;
                 }
             }
+            return resultList;
         }
 
         //public void operator +(T value)
@@ -218,6 +243,38 @@ namespace CustomList
             for (var i = 0; i < hiddenArray.Length; i++)
             {
                 yield return hiddenArray[i];
+            }
+        }
+        
+        private void ForceResetCount()
+        {
+            count = 0;
+            if (hiddenArray.GetType() == typeof(int))
+            {
+                int i = 0;
+                while (Convert.ToInt32(hiddenArray[i]) != 0)
+                {
+                    count++;
+                    i++;
+                }
+            }
+            if (hiddenArray.GetType() == typeof(string))
+            {
+                int i = 0;
+                while (Convert.ToString(hiddenArray[i]) != "")
+                {
+                    count++;
+                    i++;
+                }
+            }
+            if (hiddenArray.GetType() == typeof(bool))
+            {
+                int i = 0;
+                while (Convert.ToBoolean(hiddenArray[i]) != false)
+                {
+                    count++;
+                    i++;
+                }
             }
         }
     }
