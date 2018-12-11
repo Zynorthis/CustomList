@@ -170,10 +170,39 @@ namespace CustomList
                 return "Error";
             }
         }
-        //public override Zip()
-        //{
+        public CustomList<T> Zip(CustomList<T> secondList)
+        {
+            if (hiddenArray == null)
+            {
+                throw new ArgumentNullException("Zip Override Error: null first argument");
+            }
+            else if (secondList.hiddenArray == null)
+            {
+                throw new ArgumentNullException("Zip Override Error: null first argument");
+            }
+            else if (hiddenArray.GetType() != secondList.hiddenArray.GetType())
+            {
+                throw new Exception("Parameter Type Error: The parameters that were passed in do not have equal types.");
+            }
 
-        //}
+            T[] resultArray = new T[count + secondList.count];
+            if (count > secondList.count)
+            {
+                int i = 0;
+                while (i <= secondList.count)
+                {
+
+                }
+            }
+            else if (secondList.count > count)
+            {
+                int i = 0;
+                while (i <= count)
+                {
+
+                }
+            }
+        }
 
         //public void operator +(T value)
         //{
