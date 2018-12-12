@@ -9,25 +9,25 @@ namespace CustomList
 {
     public class CustomList <T> : IEnumerable
     {
-        T[] hiddenArray = new T[4];
+        private T[] hiddenArray = new T[4];
         private int count;
-        public int Count { get { return count; } }
-        public T this[int i]
+
+        public int Count
         {
             get
             {
-                return hiddenArray[i];
-            }
-            set
-            {
-                hiddenArray[i] = value;
+                return count;
             }
         }
+        public int Capacity { get { return hiddenArray.Length; } }
+        public T this[int i] { get { return hiddenArray[i]; } set { hiddenArray[i] = value; } }
+
         public CustomList()
         {
             this.hiddenArray = hiddenArray;
+            
         }
-        public void Add( T value )
+        public void Add(T value)
         {
             int i = 0;
             while (i <= hiddenArray.Length)
@@ -185,28 +185,49 @@ namespace CustomList
                 throw new Exception("Parameter Type Error: The parameters that were passed in do not have equal types.");
             }
 
-            T[] resultArray = new T[count + secondList.count];
-            if (count > secondList.count)
+            int a = 4;
+            while (a < (count + secondList.count))
+            {
+                a = a * 2;
+            }
+            CustomList<T> resultList = new CustomList<T>();
+            resultList.hiddenArray = new T[a];
+            if (count >= secondList.count)
             {
                 int i = 0;
-                while (i <= secondList.count)
+                while (i < secondList.count)
                 {
-
+                    resultList.Add(hiddenArray[i]);
+                    resultList.Add(secondList.hiddenArray[i]);
+                    i++;
+                }
+                while (i < count)
+                {
+                    resultList.Add(hiddenArray[i]);
+                    i++;
                 }
             }
             else if (secondList.count > count)
             {
                 int i = 0;
-                while (i <= count)
+                while (i < count)
                 {
-
+                    resultList.Add(secondList.hiddenArray[i]);
+                    resultList.Add(hiddenArray[i]);
+                    i++;
+                }
+                while (i < secondList.count)
+                {
+                    resultList.Add(secondList.hiddenArray[i]);
+                    i++;
                 }
             }
+            return resultList;
         }
 
-        //public void operator +(T value)
+        //public static CustomList<T> operator+(T value)
         //{
-
+            
         //}
         //public void operator -(T value)
         //{
