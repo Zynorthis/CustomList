@@ -381,58 +381,113 @@ namespace CustomListTest
         //   - 
 
         [TestMethod]
-        public void nameHere()
+        public void AddOperatorMethod_CheckToSeeIfIndexZeroIsEqualToTheExpectValue_isEqual()
         {
             // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> ResultList = new CustomList<int>();
+            int expectedResult = 1;
 
             // Act
+            ResultList = (list1 + list2);
+
+            // Assert
+            Assert.AreEqual(expectedResult, ResultList[0]);
+        }
+
+        [TestMethod]
+        public void AddOperatorMethod_CheckToSeeIfIndexOneIsEqualToTheExpectValue_isEqual()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> ResultList = new CustomList<int>();
+            int expectedResult = 2;
+
+            // Act
+            ResultList = (list1 + list2);
+
+            // Assert
+            Assert.AreEqual(expectedResult, ResultList[1]);
+        }
+
+        [TestMethod]
+        public void AddOperatorMethod_CheckToSeeIfIndexThreeIsEqualToTheExpectValue_isEqual()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> ResultList = new CustomList<int>();
+            int expectedResult = 4;
+
+            // Act
+            ResultList = (list1 + list2);
+
+            // Assert
+            Assert.AreEqual(expectedResult, ResultList[3]);
+        }
+        [TestMethod]
+        public void AddOperatorMethod_CheckToSeeIfIndexFiveIsEqualToTheExpectValue_isEqual()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> ResultList = new CustomList<int>();
+            int expectedResult = 6;
+
+            // Act
+            ResultList = (list1 + list2);
+
+            // Assert
+            Assert.AreEqual(expectedResult, ResultList[5]);
+        }
+
+        [TestMethod]
+        public void AddOperatorMethod_CheckResultListCount_isEqual()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> ResultList = new CustomList<int>();
+            CustomList<int> expectedResult = new CustomList<int>() { 1, 2, 3, 4, 5, 6 };
+
+            // Act
+            ResultList = (list1 + list2);
+
+            // Assert
+            Assert.AreEqual(expectedResult.Count, ResultList.Count);
+        }
+
+        [TestMethod]
+        public void AddOperatorMethod_CheckResultAfterAddingThreeListTogether()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> list3 = new CustomList<int>() { 7, 8, 9 };
+            CustomList<int> ResultList = new CustomList<int>();
+            CustomList<int> expectedResult = new CustomList<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            // Act
+            ResultList = (list1 + list2 + list3);
 
             // Assert
 
         }
 
         [TestMethod]
-        public void nameHere()
+        public void AddOperatorMethod_CheckListTypeAfterAddingTwoListTogether_isTypeOf()
         {
-            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> ResultList = new CustomList<int>();
 
             // Act
+            ResultList = list1 + list2;
 
             // Assert
-
-        }
-
-        [TestMethod]
-        public void nameHere()
-        {
-            // Arrange
-
-            // Act
-
-            // Assert
-
-        }
-
-        [TestMethod]
-        public void nameHere()
-        {
-            // Arrange
-
-            // Act
-
-            // Assert
-
-        }
-
-        [TestMethod]
-        public void nameHere()
-        {
-            // Arrange
-
-            // Act
-
-            // Assert
-
+            Assert.IsInstanceOfType(ResultList, typeof(CustomList<int>));
         }
 
         // Overload - Operator

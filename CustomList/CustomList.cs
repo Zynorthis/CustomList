@@ -29,59 +29,66 @@ namespace CustomList
         }
         public void Add(T value)
         {
-            int i = 0;
-            while (i <= hiddenArray.Length)
+            if (value.Equals(0) || value.Equals("") || value.Equals(false))
             {
-                if (hiddenArray[i].Equals(0))
+                // Do not add
+            }
+            else
+            {
+                int i = 0;
+                while (i <= hiddenArray.Length)
                 {
-                    hiddenArray[i] = value;
-                    count++;
-                    int x = hiddenArray.Length - i;
-                    i = i + x;
-                }
-                else if (hiddenArray[i].Equals(""))
-                {
-                    hiddenArray[i] = value;
-                    count++;
-                    int x = hiddenArray.Length - i;
-                    i = i + x;
-                }
-                else if (hiddenArray[i].Equals(false))
-                {
-                    hiddenArray[i] = value;
-                    count++;
-                    int x = hiddenArray.Length - i;
-                    i = i + x;
-                }
-                else if (hiddenArray[i].Equals(null))
-                {
-                    hiddenArray[i] = value;
-                    count++;
-                    int x = hiddenArray.Length - i;
-                    i = i + x;
-                }
-                // copies values to a tempArray then modifies hiddenArray length then copies values back over
-                else if (hiddenArray.Length == (i + 1))
-                {
-                    int x = hiddenArray.Length * 2;
-                    T[] tempArray = new T[x];
-                    int a = 0;
-                    foreach (T item in hiddenArray)
+                    if (hiddenArray[i].Equals(0))
                     {
-                        tempArray[a] = item;
-                        a++;
+                        hiddenArray[i] = value;
+                        count++;
+                        int x = hiddenArray.Length - i;
+                        i = i + x;
                     }
-                    hiddenArray = new T[x];
-                    a = 0;
-                    foreach (T item in tempArray)
+                    else if (hiddenArray[i].Equals(""))
                     {
-                        hiddenArray[a] = item;
-                        a++;
+                        hiddenArray[i] = value;
+                        count++;
+                        int x = hiddenArray.Length - i;
+                        i = i + x;
                     }
-                    Add(value);
-                    i = i + x;
+                    else if (hiddenArray[i].Equals(false))
+                    {
+                        hiddenArray[i] = value;
+                        count++;
+                        int x = hiddenArray.Length - i;
+                        i = i + x;
+                    }
+                    else if (hiddenArray[i].Equals(null))
+                    {
+                        hiddenArray[i] = value;
+                        count++;
+                        int x = hiddenArray.Length - i;
+                        i = i + x;
+                    }
+                    // copies values to a tempArray then modifies hiddenArray length then copies values back over
+                    else if (hiddenArray.Length == (i + 1))
+                    {
+                        int x = hiddenArray.Length * 2;
+                        T[] tempArray = new T[x];
+                        int a = 0;
+                        foreach (T item in hiddenArray)
+                        {
+                            tempArray[a] = item;
+                            a++;
+                        }
+                        hiddenArray = new T[x];
+                        a = 0;
+                        foreach (T item in tempArray)
+                        {
+                            hiddenArray[a] = item;
+                            a++;
+                        }
+                        Add(value);
+                        i = i + x;
+                    }
+                    i++;
                 }
-                i++;
             }
         }
         public void Remove(T value)
@@ -166,7 +173,7 @@ namespace CustomList
             }
             else
             {
-                Console.WriteLine("ToString Override Error: could not successfully convert to string.");
+                throw new Exception("ToString Override Error: could not successfully convert to string.");
                 return "Error";
             }
         }
@@ -225,10 +232,27 @@ namespace CustomList
             return resultList;
         }
 
-        //public static CustomList<T> operator+(T value)
-        //{
-            
-        //}
+        public static CustomList<T> operator + (CustomList<T> list1, CustomList<T> list2)
+        {
+            if (list1.GetType() != list2.GetType())
+            {
+                throw new Exception("Parameter Type Error: The parameters that were passed in do not have equal types.");
+            }
+            CustomList<T> list3 = new CustomList<T>();
+            foreach (var item in list1.hiddenArray)
+            {
+                list3.Add(item);
+            }
+            foreach (var item in list2.hiddenArray)
+            {
+                list3.Add(item);
+            }
+            if (list3 == null)
+            {
+                throw new Exception("Error, List Count Exception: Could not complete addition operation.");
+            }
+            return list3;
+        }
         //public void operator -(T value)
         //{
 
