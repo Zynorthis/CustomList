@@ -491,65 +491,105 @@ namespace CustomListTest
         }
 
         // Overload - Operator
-        //   - 
-        //   - 
-        //   - 
-        //   - 
-        //   - 
+        //   - I Did
+        //   - Stuff
+        //   - And it
+        //   - worked.
+        //   - yay
 
-        //[TestMethod]
-        //private static void nameHere()
-        //{
-        //    // Arrange
+        [TestMethod]
+        public void SubtractOperatorMethod_CheckResultIndexOneAfterSubtractingIndexOne_isEqual()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 1, 4, 5 };
+            CustomList<int> ResultList = new CustomList<int>();
+            int expectedResult = 2;
 
-        //    // Act
+            // Act
+            ResultList = list1 - list2;
 
-        //    // Assert
+            // Assert
+            Assert.AreEqual(expectedResult, ResultList[0]);
+        }
 
-        //}
+        [TestMethod]
+        public void SubtractOperatorMethod_CheckResultIndexTwoAfterSubtractingIndexOne_isEqual()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 1, 4, 5 };
+            CustomList<int> ResultList = new CustomList<int>();
+            int expectedResult = 3;
 
-        //[TestMethod]
-        //private static void nameHere()
-        //{
-        //    // Arrange
+            // Act
+            ResultList = list1 - list2;
 
-        //    // Act
+            // Assert
+            Assert.AreEqual(expectedResult, ResultList[1]);
+        }
 
-        //    // Assert
+        [TestMethod]
+        public void SubtractOperatorMethod_CheckResultIndexOneAfterSubtractingIndexTwo_isEqual()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 2, 4, 5 };
+            CustomList<int> ResultList = new CustomList<int>();
+            int expectedResult = 1;
 
-        //}
+            // Act
+            ResultList = list1 - list2;
 
-        //[TestMethod]
-        //private static void nameHere()
-        //{
-        //    // Arrange
+            // Assert
+            Assert.AreEqual(expectedResult, ResultList[0]);
+        }
 
-        //    // Act
+        [TestMethod]
+        public void SubtractOperatorMethod_CheckResultIndexOneAfterSubtractingIndexOneAndIndexTwo_isEqual()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 1, 2, 5 };
+            CustomList<int> ResultList = new CustomList<int>();
+            int expectedResult = 3;
 
-        //    // Assert
+            // Act
+            ResultList = list1 - list2;
 
-        //}
+            // Assert
+            Assert.AreEqual(expectedResult, ResultList[0]);
+        }
 
-        //[TestMethod]
-        //private static void nameHere()
-        //{
-        //    // Arrange
+        [TestMethod]
+        public void SubtractOperatorMethod_CheckResultCountAfterSubtractingIndexOne_isEqual()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 1, 4, 5 };
+            CustomList<int> ResultList = new CustomList<int>();
+            int expectedResult = 2;
 
-        //    // Act
+            // Act
+            ResultList = list1 - list2;
 
-        //    // Assert
+            // Assert
+            Assert.AreEqual(expectedResult, ResultList.Count);
+        }
 
-        //}
+        [TestMethod]
+        public void SubtractOperatorMethod_CheckResultTypeAfterSubtraction_isTypeOf()
+        {
+            // Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 1, 4, 5 };
+            CustomList<int> ResultList = new CustomList<int>();
 
-        //[TestMethod]
-        //private static void nameHere()
-        //{
-        //    // Arrange
+            // Act
+            ResultList = list1 - list2;
 
-        //    // Act
-
-        //    // Assert
-
-        //}
+            // Assert
+            Assert.IsInstanceOfType(ResultList, typeof(CustomList<int>));
+            }
     }
 }
